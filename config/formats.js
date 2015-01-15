@@ -1991,7 +1991,7 @@ exports.Formats = [
 		section: "Other Metagames",
 
 		mod: 'skillmons',
-		ruleset: ['Pokemon', 'Standard', 'Team Preview'],
+		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Species Clause', 'Moody Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Team Preview'],
 		banlist: ['Uber', 'Soul Dew']
 	},
 	{

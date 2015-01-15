@@ -9,7 +9,18 @@ exports.BattleScripts = {
 				var basePower = Math.floor(this.data.Movedex[i].basePower * accuracy / 100);
 				if (this.data.Movedex[i].critRatio === 2) basePower *= 1.125;
 				if (this.data.Movedex[i].critRatio === 3) basePower *= 1.25;
+				if (this.data.Movedex[i].ohko) {
+					basePower = 90;
+					this.modData('Movedex', i).ohko = false;
+				}
 				this.modData('Movedex', i).basePower = basePower;
+			} else if (this.data.Movedex[i].ohko) {
+				this.modData('Movedex', i).basePower = 90;
+				this.modData('Movedex', i).ohko = false;
+				this.modData('Movedex', i).basePowerCallback = function (pokemon, target) {
+					if (target.volatiles['lockon']) return 180;
+					return 90;
+				}
 			}
 			this.modData('Movedex', i).accuracy = true;
 		}
